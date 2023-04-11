@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider } from '@emotion/react';
 
-import { App } from 'components/App/App';
+import { App } from 'components/App';
 
 import './index.css';
 
@@ -14,7 +14,9 @@ const theme = {
     grey: '#313131',
     white: 'white',
     accent: '#739ceda4',
+    orange: '#ff4500',
     noActive: '#b3c4e6a3',
+    blue: '#0b0ba2',
     shadow: '1px 2px 2px rgb(0 0 0 / 0.5)',
     shadowAccent: '2px 5px 2px rgb(0 0 0 / 0.5)',
   },
