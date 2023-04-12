@@ -1,11 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const Container = styled.div`
-  width: 100vw;
-`;
-
-export const Header = styled.header`
+export const Head = styled.header`
   border-bottom: 1px solid ${p => p.theme.colors.grey};
   box-shadow: ${p => p.theme.colors.shadow};
 `;

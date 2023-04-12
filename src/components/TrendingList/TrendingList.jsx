@@ -8,7 +8,7 @@ export const TrendingList = ({ data }) => {
       <TrendsList>
         {data.map(el => (
           <Trend key={el.id}>
-            <Link to={`${el.id}`}>{el.title}</Link>
+            <Link to={`movies/${el.id}`}>{el.title}</Link>
           </Trend>
         ))}
       </TrendsList>

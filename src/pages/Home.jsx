@@ -3,34 +3,34 @@ import { useEffect, useState } from 'react';
 import { getTrending } from 'api/api-trending';
 
 import { TrendingList } from 'components/TrendingList';
+import { Loader } from 'components/Loader';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    // if (movies.length) return;
+
     const fetchTrendingMovies = async () => {
-      // setIsLoading(true);
-      // setDisabled(false);
+      setIsLoading(true);
+
       try {
         const results = await getTrending();
-
         setMovies(results);
-
-        // if (!hits.length) {
-        //   toast.info('There are no images for your request.');
-        //   setIsLoading(false);
-        //   return;
-        // }
-
-        // setIsLoading(false);
+        if (!results.length) {
+          toast.info('There are no movies for your request.');
+          setIsLoading(false);
+          return;
+        }
       } catch (error) {
         toast.error(
           `${error.message}. Movies loading error. Restart the application.`
         );
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
 
@@ -38,7 +38,9 @@ const Home = () => {
   }, []);
   return (
     <main>
+      <p>HOME</p>
       <TrendingList data={movies} />
+      {isLoading && <Loader />}
     </main>
   );
 };
