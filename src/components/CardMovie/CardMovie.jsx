@@ -1,48 +1,53 @@
-import { useState, useEffect } from 'react';
+import {
+  InfoByMovie,
+  Poster,
+  Text,
+  AboutMovie,
+  Title,
+  Genres,
+  WrapInfo,
+  WrapPoster,
+  WrapAdd,
+  AddList,
+  Link,
+  AddItem,
+} from './CardMovie.styled';
+
+const baseURL = 'http://image.tmdb.org/t/p/';
+const logoSizes = 'w500';
 
 export const CardMovie = ({ data }) => {
-  const [movie, setMovie] = useState(null);
-  console.log('data - ', data);
-
   const { poster_path, title, genres, overview, release_date, vote_average } =
     data;
-
-  // const names = students.map(student => student.name);
-
-  // const listOfGenres = genres =>
-  //   genres.reduce((acc, genre) => acc.push(...genre.name), []);
-
-  // useEffect(() => {
-  //   if (genres) {
-  //     console.log(listOfGenres());
-  //   }
-
-  // }, [genres]);
-
-  // if (genres) {
-  //   const listOfGenres = genres.map(genre => genre.name).join(' ');
-
-  // }
+  
 
   return (
     <>
-      <p>Full Info about movie</p>
       {title && (
-        <div>
-          <div>
-            <img src={poster_path} alt={title} />
-          </div>
-          <div>
-            <h1>
-              {title} ({Number.parseInt(release_date)})
-            </h1>
-            <p>User Score: {vote_average * 10}%</p>
-            <h2>Overview</h2>
-            <p>{overview}</p>
-            <h3>Genres</h3>
-            <p>{genres.map(genre => genre.name).join(' ')}</p>
-          </div>
-        </div>
+        <>
+          <InfoByMovie>
+            <WrapPoster>
+              <Poster src={baseURL + logoSizes + poster_path} alt={title} />
+            </WrapPoster>
+            <WrapInfo>
+              <Title>
+                {title} ({release_date.slice(0, 4)})
+              </Title>
+              <Text>User Score: {(vote_average * 10).toFixed(2)}%</Text>
+              <AboutMovie>Overview</AboutMovie>
+              <Text>{overview}</Text>
+              <Genres>Genres</Genres>
+              <Text>{genres.map(genre => genre.name).join(' ')}</Text>
+            </WrapInfo>
+          </InfoByMovie>
+          <WrapAdd>
+            <Text>Additional information</Text>
+            <AddList>
+              <AddItem><Link to="cast">Cast</Link></AddItem>
+              <AddItem><Link to="reviews">Reviews</Link></AddItem>
+            </AddList>
+          </WrapAdd>
+        </>
       )}
     </>
   );

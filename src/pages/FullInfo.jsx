@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 
 import { CardMovie } from 'components/CardMovie';
 import { Loader } from 'components/Loader';
@@ -39,7 +39,8 @@ const FullInfo = () => {
   return (
     <main>
       <CardMovie data={idMovie} />
-      {isLoading && <Loader/>}
+      {isLoading && <Loader />}
+      <Outlet/>
     </main>
   );
 };

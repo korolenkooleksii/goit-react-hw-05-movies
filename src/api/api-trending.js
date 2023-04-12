@@ -17,29 +17,5 @@ export const getTrending = async () => {
     data: { results },
   } = await axios.get(`3/trending/movie/week?`);
 
-  // console.log(results);
-
-    return results;
-
-  // return [
-  //   {
-  //     adult: false,
-  //     backdrop_path: '/ytdebEE0ndYLSTEctPgh8e0vaBs.jpg',
-  //     id: 76600,
-  //     title: 'Avatar: The Way of Water',
-  //     original_language: 'en',
-  //     original_title: 'Avatar: The Way of Water',
-  //     overview:
-  //       'Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.',
-  //     poster_path: '/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg',
-  //     media_type: 'movie',
-  //     genre_ids: [878, 12, 28],
-  //     popularity: 6686.292,
-  //     release_date: '2022-12-14',
-  //     video: false,
-  //     vote_average: 7.743,
-  //     vote_count: 6884,
-  //   },
-  // ];
-
+  return results;
 };
