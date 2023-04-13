@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { Loader } from 'components/Loader';
-
 import { getCastMovie } from 'api/api-cast-movie';
 
 import {
@@ -20,26 +18,21 @@ const BASE_URL = 'http://image.tmdb.org/t/p/';
 const LOGO_SIZE = 'w154';
 const defaultFoto = 'https://via.placeholder.com/200x300?text=no+photo';
 
-export const Cast = () => {
+const Cast = () => {
   const { id } = useParams('');
 
-  const [isLoading, setIsLoading] = useState(false);
   const [castMovie, setCastMovie] = useState([]);
 
   useEffect(() => {
     (async () => {
-      setIsLoading(true);
-
       try {
         const results = await getCastMovie(id);
 
         setCastMovie(results);
-        setIsLoading(false);
       } catch (error) {
         toast.error(
           `${error.message}. Info loading error. Restart the application.`
         );
-        setIsLoading(false);
       }
     })();
   }, [id]);
@@ -64,7 +57,8 @@ export const Cast = () => {
           </ActorCard>
         ))}
       </CastList>
-      {isLoading && <Loader />}
     </>
   );
 };
+
+export default Cast;

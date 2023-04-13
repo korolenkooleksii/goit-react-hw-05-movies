@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { Loader } from 'components/Loader';
-
 import { getReviewsMovie } from 'api/api-reviews-movie';
 
 import { toast } from 'react-toastify';
@@ -15,26 +13,20 @@ import {
   WrapReviews,
 } from './Reviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { id } = useParams('');
-
-  const [isLoading, setIsLoading] = useState(false);
   const [reviewsMovie, setReviewsMovie] = useState([]);
 
   useEffect(() => {
     (async () => {
-      setIsLoading(true);
-
       try {
         const results = await getReviewsMovie(id);
 
         setReviewsMovie(results);
-        setIsLoading(false);
       } catch (error) {
         toast.error(
           `${error.message}. Info loading error. Restart the application.`
         );
-        setIsLoading(false);
       }
     })();
   }, [id]);
@@ -54,7 +46,8 @@ export const Reviews = () => {
       {!reviewsMovie.length && (
         <TextInfo>We don`t have any reviews fro this movie.</TextInfo>
       )}
-      {isLoading && <Loader />}
     </>
   );
 };
+
+export default Reviews;

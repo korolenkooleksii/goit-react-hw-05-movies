@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { TbArrowNarrowLeft } from 'react-icons/tb';
@@ -23,15 +24,17 @@ const LOGO_SIZE = 'w500';
 
 export const CardMovie = ({ data }) => {
   const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
   const { poster_path, title, genres, overview, release_date, vote_average } =
     data;
 
   return (
     <>
-      
-      <LinkBack to={location.state?.from ?? '/' }>
-        <TbArrowNarrowLeft/>Go back</LinkBack>
+      <LinkBack to={backLinkLocationRef.current}>
+        <TbArrowNarrowLeft />
+        Go back
+      </LinkBack>
       {title && (
         <>
           <InfoByMovie>
