@@ -1,3 +1,7 @@
+import { useLocation } from 'react-router-dom';
+
+import { TbArrowNarrowLeft } from 'react-icons/tb';
+
 import {
   InfoByMovie,
   Poster,
@@ -11,18 +15,23 @@ import {
   AddList,
   Link,
   AddItem,
+  LinkBack,
 } from './CardMovie.styled';
 
 const BASE_URL = 'http://image.tmdb.org/t/p/';
 const LOGO_SIZE = 'w500';
 
 export const CardMovie = ({ data }) => {
+  const location = useLocation();
+
   const { poster_path, title, genres, overview, release_date, vote_average } =
     data;
-  
 
   return (
     <>
+      
+      <LinkBack to={location.state?.from ?? '/' }>
+        <TbArrowNarrowLeft/>Go back</LinkBack>
       {title && (
         <>
           <InfoByMovie>

@@ -16,7 +16,6 @@ const FullInfo = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-
     (async () => {
       setIsLoading(true);
 
@@ -31,16 +30,14 @@ const FullInfo = () => {
         );
         setIsLoading(false);
       }
-    }) ();
-
-    // fetchFullInfoMovie();
+    })();
   }, [id]);
 
   return (
     <main>
       <CardMovie data={idMovie} />
       {isLoading && <Loader />}
-      <Outlet/>
+      <Outlet />
     </main>
   );
 };

@@ -2,10 +2,10 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const InfoByMovie = styled.div`
-  padding: 40px;
+  padding: 15px 40px 40px 40px;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 10px;
   border-bottom: 1px solid ${p => p.theme.colors.grey};
   box-shadow: ${p => p.theme.colors.shadow};
   color: ${p => p.theme.colors.dark};
@@ -71,4 +71,27 @@ export const Link = styled(NavLink)`
     color: ${p => p.theme.colors.orange};
     text-decoration: underline;
   }
+`;
+
+export const LinkBack = styled(NavLink)`
+  display: inline-flex;
+  align-items: center;
+  gap:8px;
+  margin: 15px 0 0 40px;
+  padding: 2px 10px;
+  border: 1px solid ${p => p.theme.colors.dark};
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: ${p => p.theme.colors.noActive};
+  color: ${p => p.theme.colors.dark};
+  transition: all 300ms ease-out;
+
+  :hover {
+    color: ${p => p.theme.colors.orange};
+    /* text-decoration: underline; */
+    border: 1px solid ${p => p.theme.colors.orange};
+    /* background-color: ${p => p.theme.colors.accent}; */
+    }
 `;
