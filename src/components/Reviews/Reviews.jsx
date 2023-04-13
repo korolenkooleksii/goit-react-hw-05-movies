@@ -7,7 +7,13 @@ import { getReviewsMovie } from 'api/api-reviews-movie';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Author, Content, Review, TextInfo, WrapReviews } from './Reviews.styled';
+import {
+  Author,
+  Content,
+  Review,
+  TextInfo,
+  WrapReviews,
+} from './Reviews.styled';
 
 export const Reviews = () => {
   const { id } = useParams('');
@@ -16,7 +22,7 @@ export const Reviews = () => {
   const [reviewsMovie, setReviewsMovie] = useState([]);
 
   useEffect(() => {
-    const fetchCastMovie = async () => {
+    (async () => {
       setIsLoading(true);
 
       try {
@@ -30,9 +36,7 @@ export const Reviews = () => {
         );
         setIsLoading(false);
       }
-    };
-
-    fetchCastMovie();
+    })();
   }, [id]);
 
   return (
@@ -47,7 +51,9 @@ export const Reviews = () => {
           ))}
         </WrapReviews>
       )}
-      {!reviewsMovie.length && <TextInfo>We don`t have any reviews fro this movie.</TextInfo>}
+      {!reviewsMovie.length && (
+        <TextInfo>We don`t have any reviews fro this movie.</TextInfo>
+      )}
       {isLoading && <Loader />}
     </>
   );

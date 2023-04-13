@@ -17,7 +17,7 @@ const FullInfo = () => {
 
   useEffect(() => {
 
-    const fetchFullInfoMovie = async () => {
+    (async () => {
       setIsLoading(true);
 
       try {
@@ -31,9 +31,9 @@ const FullInfo = () => {
         );
         setIsLoading(false);
       }
-    };
+    }) ();
 
-    fetchFullInfoMovie();
+    // fetchFullInfoMovie();
   }, [id]);
 
   return (

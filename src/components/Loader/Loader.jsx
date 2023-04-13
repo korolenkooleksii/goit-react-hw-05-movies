@@ -5,7 +5,7 @@ export const Loader = () => {
   return (
     <Wrap>
       <RotatingLines
-        strokeColor={`${p => p.theme.colors.dark}`}
+        strokeColor="#041d51"
         strokeWidth="5"
         animationDuration="0.85"
         width="96"

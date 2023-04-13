@@ -13,8 +13,8 @@ import {
   AddItem,
 } from './CardMovie.styled';
 
-const baseURL = 'http://image.tmdb.org/t/p/';
-const logoSizes = 'w500';
+const BASE_URL = 'http://image.tmdb.org/t/p/';
+const LOGO_SIZE = 'w500';
 
 export const CardMovie = ({ data }) => {
   const { poster_path, title, genres, overview, release_date, vote_average } =
@@ -27,7 +27,7 @@ export const CardMovie = ({ data }) => {
         <>
           <InfoByMovie>
             <WrapPoster>
-              <Poster src={baseURL + logoSizes + poster_path} alt={title} />
+              <Poster src={BASE_URL + LOGO_SIZE + poster_path} alt={title} />
             </WrapPoster>
             <WrapInfo>
               <Title>
@@ -43,8 +43,12 @@ export const CardMovie = ({ data }) => {
           <WrapAdd>
             <Text>Additional information</Text>
             <AddList>
-              <AddItem><Link to="cast">Cast</Link></AddItem>
-              <AddItem><Link to="reviews">Reviews</Link></AddItem>
+              <AddItem>
+                <Link to="cast">Cast</Link>
+              </AddItem>
+              <AddItem>
+                <Link to="reviews">Reviews</Link>
+              </AddItem>
             </AddList>
           </WrapAdd>
         </>

@@ -13,27 +13,25 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-
-    const fetchTrendingMovies = async () => {
+    (async () => {
       setIsLoading(true);
 
       try {
         const results = await getTrending();
-        setMovies(results);
         if (!results.length) {
           toast.info('There are no movies for your request.');
           setIsLoading(false);
           return;
         }
+        setMovies(results);
+        setIsLoading(false);
       } catch (error) {
         toast.error(
           `${error.message}. Movies loading error. Restart the application.`
         );
         setIsLoading(false);
       }
-    };
-
-    fetchTrendingMovies();
+    })();
   }, []);
   return (
     <main>

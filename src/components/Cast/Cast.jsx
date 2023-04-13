@@ -16,8 +16,8 @@ import {
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const baseURL = 'http://image.tmdb.org/t/p/';
-const logoSizes = 'w154';
+const BASE_URL = 'http://image.tmdb.org/t/p/';
+const LOGO_SIZE = 'w154';
 const defaultFoto = 'https://via.placeholder.com/200x300?text=no+photo';
 
 export const Cast = () => {
@@ -27,7 +27,7 @@ export const Cast = () => {
   const [castMovie, setCastMovie] = useState([]);
 
   useEffect(() => {
-    const fetchCastMovie = async () => {
+    (async () => {
       setIsLoading(true);
 
       try {
@@ -41,9 +41,7 @@ export const Cast = () => {
         );
         setIsLoading(false);
       }
-    };
-
-    fetchCastMovie();
+    })();
   }, [id]);
 
   return (
@@ -55,7 +53,7 @@ export const Cast = () => {
               <ActorFoto
                 src={
                   profile_path
-                    ? baseURL + logoSizes + profile_path
+                    ? BASE_URL + LOGO_SIZE + profile_path
                     : defaultFoto
                 }
                 alt={name}
