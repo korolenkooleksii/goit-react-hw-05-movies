@@ -13,7 +13,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // if (movies.length) return;
 
     const fetchTrendingMovies = async () => {
       setIsLoading(true);
@@ -38,7 +37,6 @@ const Home = () => {
   }, []);
   return (
     <main>
-      <p>HOME</p>
       <TrendingList data={movies} />
       {isLoading && <Loader />}
     </main>
