@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { getTrending } from 'api/api-trending';
 
-import { TrendingList } from 'components/MoviesList';
+import { MoviesList } from 'components/MoviesList';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+
+  const location = useLocation();
 
   useEffect(() => {
     (async () => {
@@ -28,7 +31,11 @@ const Home = () => {
   }, []);
   return (
     <main>
-      <TrendingList data={movies} message={'Trending today'} />
+      <MoviesList
+        data={movies}
+        message={'Trending today'}
+        location={location}
+      />
     </main>
   );
 };

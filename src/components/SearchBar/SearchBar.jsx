@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 
-import { TrendingList } from 'components/MoviesList';
+import { MoviesList } from 'components/MoviesList';
 
 import { getSearchMovie } from 'api/api-search-movies';
 
@@ -13,7 +13,9 @@ import 'react-toastify/dist/ReactToastify.css';
 export const SearchBar = () => {
   const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query');
+  const query = searchParams.get('query' ?? '');
+
+  const location = useLocation();
 
   useEffect(() => {
     if (!query) return;
@@ -62,14 +64,7 @@ export const SearchBar = () => {
           <BsSearch />
         </SearchButton>
       </SearchForm>
-      {movies && (
-        <TrendingList data={movies} />
-        // <ul>
-        //   {movies.map(({ title, id }) => (
-        //     <li key={id}>{title}</li>
-        //   ))}
-        // </ul>
-      )}
+      {movies && <MoviesList data={movies} location={location} />}
     </>
   );
 };
