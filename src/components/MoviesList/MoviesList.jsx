@@ -2,9 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { TextTrends, TrendsList, Trend, Link } from './MoviesList.styled';
 
 export const MoviesList = ({ data, message = '', location }) => {
-
   const locationList = useLocation();
-
   const goTo = location.pathname;
 
   return (

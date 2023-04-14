@@ -10,7 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-
   const location = useLocation();
 
   useEffect(() => {

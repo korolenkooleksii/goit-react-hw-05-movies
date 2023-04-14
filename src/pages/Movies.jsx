@@ -1,5 +1,3 @@
-// import { Outlet } from "react-router-dom";
-
 import { SearchBar } from 'components/SearchBar';
 
 const Movies = () => {
