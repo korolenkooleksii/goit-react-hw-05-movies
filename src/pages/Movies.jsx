@@ -1,13 +1,13 @@
 // import { Outlet } from "react-router-dom";
 
-const Movies = () =>{
-  return (
-    <>
-      <p>MOVIES</p>
-      
-      {/* <Outlet/> */}
-    </>
-  );
-}
+import { SearchBar } from 'components/SearchBar';
 
-export default Movies
+const Movies = () => {
+  return (
+    <main>
+      <SearchBar />
+    </main>
+  );
+};
+
+export default Movies;

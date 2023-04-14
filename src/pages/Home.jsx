@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { getTrending } from 'api/api-trending';
 
-import { TrendingList } from 'components/TrendingList';
+import { TrendingList } from 'components/MoviesList';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,7 +28,7 @@ const Home = () => {
   }, []);
   return (
     <main>
-      <TrendingList data={movies} />
+      <TrendingList data={movies} message={'Trending today'} />
     </main>
   );
 };

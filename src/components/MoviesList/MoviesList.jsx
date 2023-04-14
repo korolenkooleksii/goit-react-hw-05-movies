@@ -1,12 +1,13 @@
 import { useLocation } from 'react-router-dom';
-import { TextTrends, TrendsList, Trend, Link } from './TrendingList.styled';
+import { TextTrends, TrendsList, Trend, Link } from './MoviesList.styled';
 
-export const TrendingList = ({ data }) => {
+export const TrendingList = ({ data, message = "" }) => {
   const location = useLocation();
 
   return (
     <>
-      <TextTrends>Trending today</TextTrends>
+      {message && <TextTrends>{ message}</TextTrends>}
+      
       <TrendsList>
         {data.map(el => (
           <Trend key={el.id}>

@@ -4,12 +4,14 @@ import styled from '@emotion/styled';
 
 export const TextTrends = styled.h1`
   margin: 0;
-  padding: 20px 40px;
+  padding-top: 20px;
+  padding-left: 40px;
   color: ${p => p.theme.colors.dark};
 `;
 
 export const TrendsList = styled.ul`
   margin: 0;
+  margin-top: 20px;
   padding-left: 60px;
 `;
 
