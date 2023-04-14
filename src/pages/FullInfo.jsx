@@ -4,7 +4,7 @@ import { Outlet, useParams } from 'react-router-dom';
 import { CardMovie } from 'components/CardMovie';
 import { Loader } from 'components/Loader';
 
-import { getFullInfoMovie } from 'api/api-fullInfo-movie'; 
+import { getFullInfoMovie } from 'api/api-info-movie'; 
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
