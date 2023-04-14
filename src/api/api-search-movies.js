@@ -8,8 +8,6 @@ axios.defaults.params = {
   api_key: KEY,
 };
 
-//https://api.themoviedb.org/3/search/movie?api_key=81f7e5d829987e856b2ed6841a3a514f&query={movie}
-
 export const getSearchMovie = async movie => {
   const {
     data: { results },

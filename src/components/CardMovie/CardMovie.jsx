@@ -20,7 +20,9 @@ import {
 } from './CardMovie.styled';
 
 const BASE_URL = 'http://image.tmdb.org/t/p/';
-const LOGO_SIZE = 'w500';
+const LOGO_SIZE = 'w780';
+const defaultFoto = 'https://via.placeholder.com/400x400?text=no+photo';
+
 
 export const CardMovie = ({ data }) => {
   const location = useLocation();
@@ -39,11 +41,16 @@ export const CardMovie = ({ data }) => {
         <>
           <InfoByMovie>
             <WrapPoster>
-              <Poster src={BASE_URL + LOGO_SIZE + poster_path} alt={title} />
+              <Poster
+                src={
+                  poster_path ? BASE_URL + LOGO_SIZE + poster_path : defaultFoto
+                }
+                alt={title}
+              />
             </WrapPoster>
             <WrapInfo>
               <Title>
-                {title} ({release_date.slice(0, 4)})
+                {title} ({release_date ? release_date.slice(0, 4) : 'no date'})
               </Title>
               <Text>User Score: {(vote_average * 10).toFixed(2)}%</Text>
               <AboutMovie>Overview</AboutMovie>

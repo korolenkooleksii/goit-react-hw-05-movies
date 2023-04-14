@@ -29,3 +29,10 @@ export const ActorFoto = styled.img`
 export const ActorName = styled.p`
   text-align: center;
 `;
+
+export const TextInfo = styled.p`
+  margin: 0;
+  padding: 20px 40px;
+  font-size: 18px;
+  font-weight: 600;
+`;
