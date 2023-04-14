@@ -21,7 +21,6 @@ const defaultFoto = 'https://via.placeholder.com/200x300?text=no+photo';
 
 const Cast = () => {
   const { id } = useParams('');
-
   const [castMovie, setCastMovie] = useState([]);
 
   useEffect(() => {

@@ -1,6 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import { TextTrends, TrendsList, Trend, Link } from './MoviesList.styled';
 
+import PropTypes from 'prop-types';
+
 export const MoviesList = ({ data, message = '', location }) => {
   const locationList = useLocation();
   const goTo = location.pathname;
@@ -23,4 +25,10 @@ export const MoviesList = ({ data, message = '', location }) => {
       </TrendsList>
     </>
   );
+};
+
+MoviesList.propTypes = {
+  data: PropTypes.array,
+  message: PropTypes.string,
+  location: PropTypes.object,
 };
